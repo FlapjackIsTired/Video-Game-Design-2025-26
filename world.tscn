@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1c0p56vho2wg"]
+
+[ext_resource type="Texture2D" uid="uid://dn1h2i5kmpr2q" path="res://world/bush.png" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://6lfl3ox4pagi" path="res://player/player.tscn" id="2_fj7yv"]
+
+[node name="world" type="Node2D"]
+
+[node name="Bush" type="Sprite2D" parent="."]
+position = Vector2(63, 65)
+texture = ExtResource("1_f3sb7")
+
+[node name="Player" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(24, 24)
