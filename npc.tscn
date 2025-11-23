@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxvv1syd6le3k"]
+
+[ext_resource type="Texture2D" uid="uid://dn1h2i5kmpr2q" path="res://world/bush.png" id="1_ideak"]
+[ext_resource type="Script" uid="uid://c7iv0hlxgbhb8" path="res://npc.gd" id="1_xxcha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh24r"]
+size = Vector2(32, 32)
+
+[node name="npc" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_xxcha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ideak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xxcha")
+
+[node name="Interact Box" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Box"]
+shape = SubResource("RectangleShape2D_kh24r")

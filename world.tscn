@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1c0p56vho2wg"]
+[gd_scene load_steps=4 format=3 uid="uid://b1c0p56vho2wg"]
 
-[ext_resource type="Texture2D" uid="uid://dn1h2i5kmpr2q" path="res://world/bush.png" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://6lfl3ox4pagi" path="res://player/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://bxvv1syd6le3k" path="res://npc.tscn" id="3_aqk2v"]
+[ext_resource type="Script" uid="uid://bl8o2kn3pujgm" path="res://camera.gd" id="3_tlwt5"]
 
 [node name="world" type="Node2D"]
 
-[node name="Bush" type="Sprite2D" parent="."]
-position = Vector2(63, 65)
-texture = ExtResource("1_f3sb7")
-
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(24, 24)
+position = Vector2(104, 24)
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("3_tlwt5")
+
+[node name="npc" parent="." instance=ExtResource("3_aqk2v")]
+position = Vector2(32, 24)
