@@ -1,0 +1,6 @@
+"first npc": hi there! rare to see new people around here
+would you like to play a game?
+- Yes
+	"first npc": too bad, its not ready
+- No
+	well youre missing out!
