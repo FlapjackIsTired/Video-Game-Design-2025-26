@@ -1,6 +1,7 @@
+join "first npc" center [animation="Fade In"]
 "first npc": hi there! rare to see new people around here
-would you like to play a game?
+"first npc": would you like to play a game?
 - Yes
 	"first npc": too bad, its not ready
 - No
-	well youre missing out!
+	"first npc": well youre missing out!

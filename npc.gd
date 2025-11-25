@@ -5,4 +5,4 @@ func _ready() -> void:
 	
 func dialogue(interactable):
 	if interactable == $"Interact Box":
-		Dialogic.start("first npc")
+		print("hello")

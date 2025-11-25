@@ -1,67 +1,33 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://dhwoqrbpn1wqw"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=9 format=3 uid="uid://dhwoqrbpn1wqw"]
 
-[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_sjys0"]
+[ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_8mlrx"]
 [ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_aomvg"]
-[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_r0acf"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_c58pa"]
-[ext_resource type="PackedScene" uid="uid://by6waso0mjpjp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/textbox_with_speaker_portrait.tscn" id="5_he7ay"]
-[ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="6_rwyca"]
-[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="7_lihoh"]
-[ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_sxecx"]
-[ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="9_10iqp"]
+[ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="4_ps6vm"]
 [ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_ptm6s"]
 
-[sub_resource type="Resource" id="Resource_grnnx"]
+[sub_resource type="Resource" id="Resource_kyqhx"]
 script = ExtResource("2_aomvg")
-scene = ExtResource("1_sjys0")
-overrides = {
-"global_font_size": "4.0"
-}
+scene = ExtResource("1_8mlrx")
 
-[sub_resource type="Resource" id="Resource_j0uku"]
-script = ExtResource("2_aomvg")
-scene = ExtResource("3_r0acf")
-
-[sub_resource type="Resource" id="Resource_g0bkn"]
+[sub_resource type="Resource" id="Resource_x22l3"]
 script = ExtResource("2_aomvg")
 scene = ExtResource("4_c58pa")
 
-[sub_resource type="Resource" id="Resource_lfeuy"]
+[sub_resource type="Resource" id="Resource_cvwvb"]
 script = ExtResource("2_aomvg")
-scene = ExtResource("5_he7ay")
+scene = ExtResource("4_ps6vm")
 overrides = {
-"box_size": "Vector2(120, 70)",
-"text_custom_size": "2.0"
+"text_size": "6.0"
 }
-
-[sub_resource type="Resource" id="Resource_re1i5"]
-script = ExtResource("2_aomvg")
-scene = ExtResource("6_rwyca")
-
-[sub_resource type="Resource" id="Resource_pt2ys"]
-script = ExtResource("2_aomvg")
-scene = ExtResource("7_lihoh")
-
-[sub_resource type="Resource" id="Resource_cxso5"]
-script = ExtResource("2_aomvg")
-scene = ExtResource("8_sxecx")
-
-[sub_resource type="Resource" id="Resource_u2qtb"]
-script = ExtResource("2_aomvg")
-scene = ExtResource("9_10iqp")
 
 [resource]
 script = ExtResource("10_ptm6s")
 name = "text_box_style"
-layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16"])
+layer_list = Array[String](["10", "11"])
 layer_info = {
-"": SubResource("Resource_grnnx"),
-"10": SubResource("Resource_j0uku"),
-"11": SubResource("Resource_g0bkn"),
-"12": SubResource("Resource_lfeuy"),
-"13": SubResource("Resource_re1i5"),
-"14": SubResource("Resource_pt2ys"),
-"15": SubResource("Resource_cxso5"),
-"16": SubResource("Resource_u2qtb")
+"": SubResource("Resource_kyqhx"),
+"10": SubResource("Resource_x22l3"),
+"11": SubResource("Resource_cvwvb")
 }
-metadata/_latest_layer = "12"
+metadata/_latest_layer = "11"
