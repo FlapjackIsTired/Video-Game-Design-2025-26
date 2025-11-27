@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp2hp145cekaa"]
+
+[ext_resource type="Script" uid="uid://ct0nt6dr85nit" path="res://Main RPG/dialogue_variables.gd" id="1_ttwh0"]
+
+[node name="dialogue variables" type="Node"]
+script = ExtResource("1_ttwh0")

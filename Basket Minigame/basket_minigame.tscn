@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1renhbetpxn5"]
+
+[ext_resource type="Script" uid="uid://ddy0pp8ruo7be" path="res://Basket Minigame/basket_player.gd" id="1_fgwqv"]
+[ext_resource type="Script" uid="uid://bva5ct82yd2sr" path="res://Basket Minigame/basket_minigame.gd" id="1_hgj3y"]
+[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://player/player.png" id="2_ekltm"]
+[ext_resource type="PackedScene" uid="uid://bubmfcoevjlwa" path="res://Basket Minigame/apple.tscn" id="3_ekltm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
+size = Vector2(8, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgwqv"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgj3y"]
+size = Vector2(320, 26)
+
+[node name="Basket Minigame" type="Node2D"]
+script = ExtResource("1_hgj3y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -160.0
+offset_top = -88.0
+offset_right = -120.0
+offset_bottom = -65.0
+
+[node name="Basket Player" type="CharacterBody2D" parent="."]
+position = Vector2(4, 52)
+script = ExtResource("1_fgwqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basket Player"]
+texture = ExtResource("2_ekltm")
+hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket Player"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lg4go")
+
+[node name="Basket" type="Area2D" parent="Basket Player"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket Player/Basket"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_fgwqv")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 77)
+shape = SubResource("RectangleShape2D_hgj3y")
+
+[node name="Apple" parent="." instance=ExtResource("3_ekltm")]
+position = Vector2(0, -36)
+
+[node name="Apple2" parent="." instance=ExtResource("3_ekltm")]
+position = Vector2(64, -36)
+
+[node name="Apple3" parent="." instance=ExtResource("3_ekltm")]
+position = Vector2(-72, -36)
+
+[connection signal="points_collected" from="Basket Player" to="." method="_on_basket_player_points_collected"]
+[connection signal="area_entered" from="Basket Player/Basket" to="Basket Player" method="_on_basket_area_entered"]

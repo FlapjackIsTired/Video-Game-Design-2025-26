@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxvv1syd6le3k"]
 
 [ext_resource type="Texture2D" uid="uid://dn1h2i5kmpr2q" path="res://world/bush.png" id="1_ideak"]
-[ext_resource type="Script" uid="uid://c7iv0hlxgbhb8" path="res://npc.gd" id="1_xxcha"]
+[ext_resource type="Script" uid="uid://c7iv0hlxgbhb8" path="res://Main RPG/npc.gd" id="1_xxcha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
 

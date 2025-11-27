@@ -1,0 +1,19 @@
+~ start
+if not DialogueVariables.has_met_nathan
+	set DialogueVariables.has_met_nathan = true
+	Nathan: Howdy! I've never seen you around, are you new here?
+	- Yes
+		Nathan: [wave]Welcome[/wave] to the land of UNDECIDED!!!
+	- No
+		Nathan: Ah ok, sorry for botherin ya! if you need any help just come talk to me again
+	=> END
+
+else
+	~ second
+	Nathan: Need Help?
+	- Yes
+		Nathan: [wave]Welcome[/wave] to the land of UNDECIDED!!!
+	- No
+		Nathan: Ah ok, sorry for botherin ya! if you need any help
+		just come talk to me again
+	=> END
