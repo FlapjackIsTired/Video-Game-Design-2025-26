@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1renhbetpxn5"]
+[gd_scene load_steps=9 format=3 uid="uid://d1renhbetpxn5"]
 
 [ext_resource type="Script" uid="uid://ddy0pp8ruo7be" path="res://Basket Minigame/basket_player.gd" id="1_fgwqv"]
 [ext_resource type="Script" uid="uid://bva5ct82yd2sr" path="res://Basket Minigame/basket_minigame.gd" id="1_hgj3y"]
 [ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://player/player.png" id="2_ekltm"]
-[ext_resource type="PackedScene" uid="uid://bubmfcoevjlwa" path="res://Basket Minigame/apple.tscn" id="3_ekltm"]
+
+[sub_resource type="Curve" id="Curve_hgj3y"]
+_limits = [0.0, 2.4472542, 0.0, 60.0]
+_data = [Vector2(0, 0.44528747), 0.0, 0.0, 0, 0, Vector2(10.606061, 1.2935784), 0.03981312, 0.03981312, 0, 0, Vector2(39.545456, 1.8025529), 0.0, 0.0, 0, 0, Vector2(47.57576, 2.3183138), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
 size = Vector2(8, 18)
@@ -14,15 +18,34 @@ size = Vector2(16, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgj3y"]
 size = Vector2(320, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekltm"]
+size = Vector2(22, 154)
+
 [node name="Basket Minigame" type="Node2D"]
 script = ExtResource("1_hgj3y")
+curve = SubResource("Curve_hgj3y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="Total Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Micro Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Point Label" type="Label" parent="."]
 offset_left = -160.0
 offset_top = -88.0
 offset_right = -120.0
+offset_bottom = -65.0
+
+[node name="Time Label" type="Label" parent="."]
+offset_left = 120.0
+offset_top = -88.0
+offset_right = 160.0
 offset_bottom = -65.0
 
 [node name="Basket Player" type="CharacterBody2D" parent="."]
@@ -53,14 +76,14 @@ collision_mask = 3
 position = Vector2(0, 77)
 shape = SubResource("RectangleShape2D_hgj3y")
 
-[node name="Apple" parent="." instance=ExtResource("3_ekltm")]
-position = Vector2(0, -36)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-171, -13)
+shape = SubResource("RectangleShape2D_ekltm")
 
-[node name="Apple2" parent="." instance=ExtResource("3_ekltm")]
-position = Vector2(64, -36)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(172, -12)
+shape = SubResource("RectangleShape2D_ekltm")
 
-[node name="Apple3" parent="." instance=ExtResource("3_ekltm")]
-position = Vector2(-72, -36)
-
+[connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
 [connection signal="points_collected" from="Basket Player" to="." method="_on_basket_player_points_collected"]
 [connection signal="area_entered" from="Basket Player/Basket" to="Basket Player" method="_on_basket_area_entered"]

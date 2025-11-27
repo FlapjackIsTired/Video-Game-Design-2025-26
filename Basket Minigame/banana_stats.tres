@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BasketItemStats" load_steps=2 format=3 uid="uid://bmhqx4wd8pked"]
+
+[ext_resource type="Script" uid="uid://cejiuddlvy6vy" path="res://Basket Minigame/basket_item_stats.gd" id="1_6rp4t"]
+
+[resource]
+script = ExtResource("1_6rp4t")
+fall_speed = 5.0
+value = 10
+metadata/_custom_type_script = "uid://cejiuddlvy6vy"
