@@ -32,7 +32,6 @@ func _on_basket_area_entered(area: Area2D) -> void:
 	var points
 	for i in items:
 		if i != null:
-			i = i.get_parent()
 			points = i.value
 			points_collected.emit(points)
 			i.queue_free()

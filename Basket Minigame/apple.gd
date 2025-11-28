@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 @export var stats : Resource
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 	fall_speed = stats.fall_speed
 
 func _process(delta: float) -> void:
-	apply_force(Vector2(0, fall_speed))
+	position += Vector2(0, fall_speed/10)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	queue_free()

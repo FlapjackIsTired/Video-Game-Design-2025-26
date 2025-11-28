@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 	point_label.text = str(total_points)
 	time_label.text = str(total_timer.time_left)
 	micro_timer.wait_time = curve.sample(total_timer.time_left)
-	print(micro_timer.wait_time)
 
 func _on_basket_player_points_collected(points) -> void:
 	total_points += points
@@ -35,6 +34,27 @@ func _on_micro_timer_timeout() -> void:
 	#Gonna design it so when we are 15 seconds in, it will drop one item
 	#30 seconds in, it will drop two
 	#45, it will drop three
-	var item = items[randi_range(0,1)].instantiate()
-	add_child(item)
-	item.position = Vector2(randf_range(-160, 160), -90)
+	var amount = 1
+	var count = 0
+	if total_timer.time_left <= 50:
+		amount = 2
+	elif total_timer.time_left <= 40:
+		amount = 3
+	elif total_timer.time_left <= 30:
+		amount = 5
+	elif total_timer.time_left <= 20:
+		amount = 6
+		
+	while count <= amount:
+		count += 1
+		var item = items[randi_range(0,1)].instantiate()
+		add_child(item)
+		item.position = Vector2(randf_range(-160, 160), -90)
+
+
+func _on_total_timer_timeout() -> void:
+	micro_timer.stop()
+	GlobalVars.basket_scores.append(total_points)
+	GlobalVars.basket_scores.sort()
+	GlobalVars.basket_scores.invert()
+	print(GlobalVars.basket_scores)

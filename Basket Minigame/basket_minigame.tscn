@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve" id="Curve_hgj3y"]
 _limits = [0.0, 2.4472542, 0.0, 60.0]
-_data = [Vector2(0, 0.44528747), 0.0, 0.0, 0, 0, Vector2(10.606061, 1.2935784), 0.03981312, 0.03981312, 0, 0, Vector2(39.545456, 1.8025529), 0.0, 0.0, 0, 0, Vector2(47.57576, 2.3183138), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.44528747), 0.0, 0.0, 0, 0, Vector2(10.909091, 1.5074023), 0.03981312, 0.03981312, 0, 0, Vector2(29.242428, 1.9993565), -0.013490889, -0.013490889, 0, 0, Vector2(45.303032, 2.3193831), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
@@ -84,6 +84,7 @@ shape = SubResource("RectangleShape2D_ekltm")
 position = Vector2(172, -12)
 shape = SubResource("RectangleShape2D_ekltm")
 
+[connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]
 [connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
 [connection signal="points_collected" from="Basket Player" to="." method="_on_basket_player_points_collected"]
 [connection signal="area_entered" from="Basket Player/Basket" to="Basket Player" method="_on_basket_area_entered"]
