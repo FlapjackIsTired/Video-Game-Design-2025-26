@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgwc88d6qc4ku"]
+
+[ext_resource type="Script" uid="uid://cuydbjjmu5nyf" path="res://Slinky Game/ball.gd" id="1_cdoyr"]
+[ext_resource type="Resource" uid="uid://dwg4a8wdgfvmu" path="res://Slinky Game/ball_1_stats.tres" id="2_jdcqs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rb7s3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cwi4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwi4f"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vte0c"]
+size = Vector2(8, 8)
+
+[node name="Ball 1" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_rb7s3")
+lock_rotation = true
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_cdoyr")
+stats = ExtResource("2_jdcqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cwi4f")
+
+[node name="Right Area" type="Area2D" parent="."]
+position = Vector2(8, 0)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Area"]
+shape = SubResource("RectangleShape2D_cwi4f")
+
+[node name="Left Area" type="Area2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Area"]
+shape = SubResource("RectangleShape2D_vte0c")
+
+[connection signal="body_entered" from="Right Area" to="." method="_on_right_area_body_entered"]
+[connection signal="body_entered" from="Left Area" to="." method="_on_left_area_body_entered"]

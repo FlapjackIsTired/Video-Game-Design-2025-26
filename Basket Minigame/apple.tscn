@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bubmfcoevjlwa"]
 
-[ext_resource type="Script" uid="uid://c4vlk4cgateih" path="res://Basket Minigame/apple.gd" id="1_8pvjp"]
+[ext_resource type="Script" uid="uid://c4vlk4cgateih" path="res://Basket Minigame/basket_item.gd" id="1_8pvjp"]
 [ext_resource type="Resource" uid="uid://d3xeekdm77w4u" path="res://Basket Minigame/apple_stats.tres" id="2_qg5kk"]
 [ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="3_dkhcj"]
 

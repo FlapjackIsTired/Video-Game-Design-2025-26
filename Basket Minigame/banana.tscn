@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6wvm8quknc2y"]
 
-[ext_resource type="Script" uid="uid://deqlksxvjlsxr" path="res://Basket Minigame/banana.gd" id="1_2bgkb"]
+[ext_resource type="Script" uid="uid://c4vlk4cgateih" path="res://Basket Minigame/basket_item.gd" id="1_2bgkb"]
 [ext_resource type="Resource" uid="uid://bmhqx4wd8pked" path="res://Basket Minigame/banana_stats.tres" id="2_jl4d1"]
 [ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="3_oo604"]
 
