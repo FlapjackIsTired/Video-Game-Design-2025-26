@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BallStats" load_steps=2 format=3 uid="uid://b5416qhgmuiou"]
+
+[ext_resource type="Script" uid="uid://bwaip1nxrdpka" path="res://Slinky Game/ball_stats.gd" id="1_ay3ji"]
+
+[resource]
+script = ExtResource("1_ay3ji")
+initial_velocity = Vector2(-100, -20)
+reset_position = Vector2(-128, -72)
+min_speed = 250.0
+max_speed = 300.0
+metadata/_custom_type_script = "uid://bwaip1nxrdpka"

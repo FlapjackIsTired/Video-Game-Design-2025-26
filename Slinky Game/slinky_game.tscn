@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://o6y48epwxy2o" path="res://Slinky Game/slinky_game.gd" id="1_rb7s3"]
 [ext_resource type="Script" uid="uid://cyko3lecwxvgp" path="res://Slinky Game/slinky_player.gd" id="2_rb7s3"]
 [ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://player/player.png" id="3_edy2p"]
-[ext_resource type="PackedScene" uid="uid://bgwc88d6qc4ku" path="res://Slinky Game/ball_1.tscn" id="4_vte0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
 size = Vector2(8, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxgmr"]
+size = Vector2(12, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgj3y"]
 size = Vector2(320, 26)
@@ -19,8 +21,8 @@ script = ExtResource("1_rb7s3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Total Timer" type="Timer" parent="."]
-wait_time = 60.0
+[node name="Reset Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -28,6 +30,12 @@ autostart = true
 offset_left = 120.0
 offset_top = -88.0
 offset_right = 160.0
+offset_bottom = -65.0
+
+[node name="Lives Left Label" type="Label" parent="."]
+offset_left = -158.0
+offset_top = -88.0
+offset_right = -118.0
 offset_bottom = -65.0
 
 [node name="Slinky Player" type="CharacterBody2D" parent="."]
@@ -42,8 +50,16 @@ hframes = 60
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_lg4go")
 
+[node name="Area2D" type="Area2D" parent="Slinky Player"]
+position = Vector2(0, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slinky Player/Area2D"]
+shape = SubResource("RectangleShape2D_yxgmr")
+
 [node name="Floor" type="StaticBody2D" parent="."]
-collision_layer = 7
+collision_layer = 5
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -62,8 +78,6 @@ shape = SubResource("RectangleShape2D_ekltm")
 position = Vector2(172, -12)
 shape = SubResource("RectangleShape2D_ekltm")
 
-[node name="Ball 1" parent="." instance=ExtResource("4_vte0c")]
-position = Vector2(-132, -4)
-
-[connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]
-[connection signal="points_collected" from="Slinky Player" to="." method="_on_basket_player_points_collected"]
+[connection signal="timeout" from="Reset Timer" to="." method="_on_reset_timer_timeout"]
+[connection signal="lives_lost" from="Slinky Player" to="." method="_on_slinky_player_lives_lost"]
+[connection signal="body_entered" from="Slinky Player/Area2D" to="Slinky Player" method="_on_area_2d_body_entered"]

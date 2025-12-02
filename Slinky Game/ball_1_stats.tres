@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_w2n4r")
+initial_velocity = Vector2(-100, -20)
+reset_position = Vector2(-128, -38)
+min_speed = 200.0
+max_speed = 250.0
 metadata/_custom_type_script = "uid://bwaip1nxrdpka"
