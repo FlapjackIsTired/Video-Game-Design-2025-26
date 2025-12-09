@@ -38,6 +38,12 @@ offset_top = -88.0
 offset_right = -118.0
 offset_bottom = -65.0
 
+[node name="High-Score Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -46.0
+offset_right = 20.0
+offset_bottom = -22.0
+
 [node name="Slinky Player" type="CharacterBody2D" parent="."]
 position = Vector2(4, 52)
 script = ExtResource("2_rb7s3")

@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
+@onready var dialogue = load("res://Main RPG/first_npc_dialogue.dialogue")
+
 func _ready() -> void:
-	$"../Player".interacted.connect(dialogue)
+	$"../Player".interacted.connect(start_dialogue)
 	
-func dialogue(interactable):
+func start_dialogue(interactable):
 	if interactable == $"Interact Box":
-		print("hello")
+		DialogueManager.show_dialogue_balloon(dialogue)
