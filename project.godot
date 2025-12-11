@@ -61,6 +61,10 @@ folder_colors={
 "res://Slinky Game/": "green"
 }
 
+[gui]
+
+theme/custom_font="uid://dwwmdlegoqr8o"
+
 [input]
 
 a={

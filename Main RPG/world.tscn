@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1c0p56vho2wg"]
+[gd_scene load_steps=6 format=3 uid="uid://b1c0p56vho2wg"]
 
 [ext_resource type="PackedScene" uid="uid://6lfl3ox4pagi" path="res://player/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bxvv1syd6le3k" path="res://Main RPG/npc.tscn" id="3_aqk2v"]
 [ext_resource type="Script" uid="uid://bl8o2kn3pujgm" path="res://Main RPG/camera.gd" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bnhs6td0ydw3y" path="res://Main RPG/slinky_cabinet.tscn" id="4_1riv1"]
+[ext_resource type="PackedScene" uid="uid://c5curut3uxo0q" path="res://high_score_screen.tscn" id="5_1gjno"]
 
 [node name="world" type="Node2D"]
 
@@ -13,7 +14,15 @@
 script = ExtResource("3_tlwt5")
 
 [node name="npc" parent="." instance=ExtResource("3_aqk2v")]
+visible = false
 position = Vector2(0, -100)
 
 [node name="Arcade Cabinet" parent="." instance=ExtResource("4_1riv1")]
+visible = false
 position = Vector2(-40, -100)
+
+[node name="HighScoreScreen" parent="." instance=ExtResource("5_1gjno")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c5curut3uxo0q"]
+
+[node name="HighScoreScreen" type="Control"]
+layout_mode = 3
+anchor_left = -0.45000002
+anchor_top = -0.611
+anchor_right = 0.45000002
+anchor_bottom = 0.544
+offset_left = 144.0
+offset_top = 109.98
+offset_right = -144.0
+offset_bottom = -97.920006
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -59.0
+offset_right = 80.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "oh 	"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "boy"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "it"
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Score3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "works"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score4"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fine"
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score5"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -88.0
+offset_top = -64.0
+offset_right = 90.0
+offset_bottom = 64.0
+color = Color(0.0015853684, 0.014649026, 0.012483813, 1)
