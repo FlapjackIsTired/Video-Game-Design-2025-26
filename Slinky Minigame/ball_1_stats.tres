@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BallStats" load_steps=2 format=3 uid="uid://dwg4a8wdgfvmu"]
 
-[ext_resource type="Script" uid="uid://bwaip1nxrdpka" path="res://Slinky Game/ball_stats.gd" id="1_w2n4r"]
+[ext_resource type="Script" uid="uid://bwaip1nxrdpka" path="res://Slinky Minigame/ball_stats.gd" id="1_w2n4r"]
 
 [resource]
 script = ExtResource("1_w2n4r")

@@ -58,7 +58,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 folder_colors={
 "res://Basket Minigame/": "green",
 "res://Main RPG/": "red",
-"res://Slinky Game/": "green"
+"res://Slinky Minigame/": "green",
+"res://Top-Down Shooter Minigame/": "green"
 }
 
 [gui]

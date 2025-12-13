@@ -2,10 +2,17 @@ extends Node2D
 
 @onready var time_label: Label = $"Time Label"
 @onready var lives_left_label: Label = $"Lives Left Label"
-@onready var high_score_label: Label = $"High-Score Label"
+@onready var high_score_screen: Control = $HighScoreScreen
 
 @onready var reset_timer: Timer = $"Reset Timer"
 @onready var slinky_player: CharacterBody2D = $"Slinky Player"
+
+@onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1,
+$HighScoreScreen/VBoxContainer/Score2,
+$HighScoreScreen/VBoxContainer/Score3,
+$HighScoreScreen/VBoxContainer/Score4,
+$HighScoreScreen/VBoxContainer/Score5]
+
 
 var ball_1 #= "res://Slinky Game/ball_1.tscn"
 var ball_2 #= "res://Slinky Game/ball_2.tscn"
@@ -27,7 +34,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if reset_timer.is_stopped() == true:
-		time_label.text = str(time_survived)
+		time_label.text = str(int(time_survived))
 		time_survived += 0.02
 	else:
 		time_label.text = str(reset_timer.time_left)
@@ -46,17 +53,21 @@ func _on_slinky_player_lives_lost() -> void:
 	#This will reset the balls position to give the player some time to recover
 	lives_left -= 1
 	for i in all_balls:
-		i.freeze = true
+		if i != null:
+			i.freeze = true
 	
 	if lives_left > 0:
 		reset_timer.start()
 	
 	#This will be used to display what happens when the player dies
 	elif lives_left == 0:
-		time_label.visible == false
-		lives_left_label.visible == false
-		high_score_label.visible == true
-		reset_timer.paused == true
+		for i in all_balls:
+			i.queue_free()
+		
+		time_label.visible = false
+		lives_left_label.visible = false
+		reset_timer.paused = true
+		high_score_screen.visible = true
 		
 		#adds the score to the array inside the SaveLoad script
 		#Then it sorts it lowest to highest, and reverses it
@@ -69,16 +80,18 @@ func _on_slinky_player_lives_lost() -> void:
 		SaveLoad.save()
 		SaveLoad.load_save()
 		
-		#Created a while loop to print the four highest scores
+		#Created a for loop to print the four highest scores
 		#might create a highscore naming system later to make the game feel more like an arcade
 		var count = 0
-		while count <= 5:
+		
+		for i in score_labels:
 			if SaveLoad.save_file_data.slinky_scores[count] != null:
-				high_score_label.text += str(SaveLoad.save_file_data.slinky_scores[count]) + "\n"
-				count += 1
+				i.text = str(SaveLoad.save_file_data.slinky_scores[count])
+				print(str(SaveLoad.save_file_data.slinky_scores[count]))
 			else:
-				high_score_label.text += "none /n"
-	
+				high_score_screen.text += "none"
+				
+			count += 1
 
 func _on_reset_timer_timeout() -> void:
 	for i in all_balls:

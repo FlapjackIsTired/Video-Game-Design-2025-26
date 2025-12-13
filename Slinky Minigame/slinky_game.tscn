@@ -1,0 +1,233 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1j8c0wc6tbkt"]
+
+[ext_resource type="Script" uid="uid://o6y48epwxy2o" path="res://Slinky Minigame/slinky_game.gd" id="1_rb7s3"]
+[ext_resource type="Script" uid="uid://cyko3lecwxvgp" path="res://Slinky Minigame/slinky_player.gd" id="2_rb7s3"]
+[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="3_edy2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
+size = Vector2(8, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxgmr"]
+size = Vector2(12, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgj3y"]
+size = Vector2(320, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekltm"]
+size = Vector2(22, 154)
+
+[node name="Slinky Game" type="Node2D"]
+script = ExtResource("1_rb7s3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Reset Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Time Label" type="Label" parent="."]
+offset_left = 120.0
+offset_top = -88.0
+offset_right = 160.0
+offset_bottom = -65.0
+
+[node name="Lives Left Label" type="Label" parent="."]
+offset_left = -158.0
+offset_top = -88.0
+offset_right = -118.0
+offset_bottom = -65.0
+
+[node name="Slinky Player" type="CharacterBody2D" parent="."]
+position = Vector2(4, 52)
+script = ExtResource("2_rb7s3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slinky Player"]
+texture = ExtResource("3_edy2p")
+hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slinky Player"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lg4go")
+
+[node name="Area2D" type="Area2D" parent="Slinky Player"]
+position = Vector2(0, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slinky Player/Area2D"]
+shape = SubResource("RectangleShape2D_yxgmr")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 77)
+shape = SubResource("RectangleShape2D_hgj3y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, -104)
+shape = SubResource("RectangleShape2D_hgj3y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-171, -13)
+shape = SubResource("RectangleShape2D_ekltm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(172, -12)
+shape = SubResource("RectangleShape2D_ekltm")
+
+[node name="HighScoreScreen" type="Control" parent="."]
+visible = false
+top_level = true
+layout_mode = 3
+anchor_left = -0.45000002
+anchor_top = -0.611
+anchor_right = 0.45000002
+anchor_bottom = 0.544
+offset_left = -144.0
+offset_top = -98.02
+offset_right = -144.0
+offset_bottom = -98.02
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighScoreScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -59.0
+offset_right = 80.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Score1" type="Label" parent="HighScoreScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "oh 	"
+
+[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score1"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score2" type="Label" parent="HighScoreScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "boy"
+
+[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score3" type="Label" parent="HighScoreScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "it"
+
+[node name="ColorRect2" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score4" type="Label" parent="HighScoreScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "works"
+
+[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score4"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="Score5" type="Label" parent="HighScoreScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fine"
+
+[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score5"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -7.0
+offset_right = 64.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050982848, 0.103467844, 0.17511597, 1)
+
+[node name="ColorRect" type="ColorRect" parent="HighScoreScreen"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -63.999996
+offset_right = 89.0
+offset_bottom = 63.999996
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0015853684, 0.014649026, 0.012483813, 1)
+
+[connection signal="timeout" from="Reset Timer" to="." method="_on_reset_timer_timeout"]
+[connection signal="lives_lost" from="Slinky Player" to="." method="_on_slinky_player_lives_lost"]
+[connection signal="body_entered" from="Slinky Player/Area2D" to="Slinky Player" method="_on_area_2d_body_entered"]

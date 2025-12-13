@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddy0pp8ruo7be" path="res://Basket Minigame/basket_player.gd" id="1_fgwqv"]
 [ext_resource type="Script" uid="uid://bva5ct82yd2sr" path="res://Basket Minigame/basket_minigame.gd" id="1_hgj3y"]
-[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://player/player.png" id="2_ekltm"]
+[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="2_ekltm"]
 
 [sub_resource type="Curve" id="Curve_hgj3y"]
 _limits = [0.0, 2.4472542, 0.0, 60.0]

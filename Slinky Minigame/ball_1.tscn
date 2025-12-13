@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgwc88d6qc4ku"]
 
-[ext_resource type="Script" uid="uid://cuydbjjmu5nyf" path="res://Slinky Game/ball.gd" id="1_cdoyr"]
-[ext_resource type="Resource" uid="uid://dwg4a8wdgfvmu" path="res://Slinky Game/ball_1_stats.tres" id="2_jdcqs"]
+[ext_resource type="Script" uid="uid://cuydbjjmu5nyf" path="res://Slinky Minigame/ball.gd" id="1_cdoyr"]
+[ext_resource type="Resource" uid="uid://dwg4a8wdgfvmu" path="res://Slinky Minigame/ball_1_stats.tres" id="2_jdcqs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rb7s3"]
 friction = 0.0

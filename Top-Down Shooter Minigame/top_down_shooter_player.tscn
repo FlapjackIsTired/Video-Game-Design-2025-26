@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cehu6hnruawhi"]
+
+[ext_resource type="Script" uid="uid://b2g32pidmk0a0" path="res://top_down_shooter_player.gd" id="1_crgqc"]
+[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="2_567tk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+motion_mode = 1
+script = ExtResource("1_crgqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.000001, 1.1920929e-07)
+scale = Vector2(0.90625, 0.625)
+texture = ExtResource("2_567tk")
+hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rkbax")
+
+[node name="Gun Pivot" type="Marker2D" parent="."]
+
+[node name="Gun" type="Marker2D" parent="Gun Pivot"]
+position = Vector2(16, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Gun Pivot/Gun"]
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 2.0
+color = Color(1, 0.18, 0.18, 1)
