@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cehu6hnruawhi"]
 
-[ext_resource type="Script" uid="uid://b2g32pidmk0a0" path="res://top_down_shooter_player.gd" id="1_crgqc"]
+[ext_resource type="Script" uid="uid://b2g32pidmk0a0" path="res://Top-Down Shooter Minigame/top_down_shooter_player.gd" id="1_crgqc"]
 [ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="2_567tk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]

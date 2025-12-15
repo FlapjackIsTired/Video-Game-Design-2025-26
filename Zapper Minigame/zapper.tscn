@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://j65kvxgb4wpu"]
+
+[ext_resource type="Script" uid="uid://di185u6ahibhw" path="res://Zapper Minigame/zapper_minigame.gd" id="1_1w2sn"]
+[ext_resource type="Script" uid="uid://ctn7msrgp4221" path="res://Zapper Minigame/cursor.gd" id="2_i0owv"]
+
+[sub_resource type="Curve" id="Curve_1w2sn"]
+_limits = [0.0, 2.4472542, 0.0, 60.0]
+_data = [Vector2(0, 0.44528747), 0.0, 0.0, 0, 0, Vector2(10.909091, 1.5074023), 0.03981312, 0.03981312, 0, 0, Vector2(29.242428, 1.9993565), -0.013490889, -0.013490889, 0, 0, Vector2(45.303032, 2.3193831), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etwcs"]
+radius = 6.0
+
+[node name="zapper" type="Node2D"]
+script = ExtResource("1_1w2sn")
+curve = SubResource("Curve_1w2sn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Micro Timer" type="Timer" parent="."]
+wait_time = 2.851
+autostart = true
+
+[node name="Total Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Top Row" type="Node2D" parent="."]
+position = Vector2(0, -48)
+
+[node name="Spot 1" type="Marker2D" parent="Top Row"]
+position = Vector2(112, 0)
+
+[node name="Spot 2" type="Marker2D" parent="Top Row"]
+position = Vector2(-112, 0)
+
+[node name="Spot 3" type="Marker2D" parent="Top Row"]
+position = Vector2(40, 0)
+
+[node name="Spot 4" type="Marker2D" parent="Top Row"]
+position = Vector2(-40, 0)
+
+[node name="Middle Row" type="Node2D" parent="."]
+
+[node name="Spot 5" type="Marker2D" parent="Middle Row"]
+position = Vector2(112, 0)
+
+[node name="Spot 6" type="Marker2D" parent="Middle Row"]
+position = Vector2(-112, 0)
+
+[node name="Spot 7" type="Marker2D" parent="Middle Row"]
+position = Vector2(40, 0)
+
+[node name="Spot 8" type="Marker2D" parent="Middle Row"]
+position = Vector2(-40, 0)
+
+[node name="Bottom Row" type="Node2D" parent="."]
+position = Vector2(0, 48)
+
+[node name="Spot 9" type="Marker2D" parent="Bottom Row"]
+position = Vector2(112, 0)
+
+[node name="Spot 10" type="Marker2D" parent="Bottom Row"]
+position = Vector2(-112, 0)
+
+[node name="Spot 11" type="Marker2D" parent="Bottom Row"]
+position = Vector2(40, 0)
+
+[node name="Spot 12" type="Marker2D" parent="Bottom Row"]
+position = Vector2(-40, 0)
+
+[node name="Cursor" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("2_i0owv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+shape = SubResource("CircleShape2D_etwcs")
+
+[connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
+[connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]

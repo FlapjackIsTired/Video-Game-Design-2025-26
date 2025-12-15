@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxfwrnt06x2sa"]
+
+[ext_resource type="Script" uid="uid://6x3snd5ayy68" path="res://Zapper Minigame/cowboy.gd" id="1_jnnab"]
+[ext_resource type="Resource" uid="uid://vru2hts541xa" path="res://Zapper Minigame/cowboy_1.tres" id="2_dh4g1"]
+[ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="2_t5cd2"]
+
+[sub_resource type="Curve" id="Curve_t5cd2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.70959604, 0.703285), -1.1515124, -1.1515124, 0, 0, Vector2(0.99747485, 0.28455633), -2.4809446, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5kk"]
+size = Vector2(16, 16)
+
+[node name="Cowboy 1" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_jnnab")
+stats = ExtResource("2_dh4g1")
+curve = SubResource("Curve_t5cd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qg5kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.79, 0.03950001, 0.03950001, 1)
+scale = Vector2(0.12499999, 0.12499999)
+texture = ExtResource("2_t5cd2")
+
+[node name="Death Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Death Timer" to="." method="_on_death_timer_timeout"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zapper_enemy_resource" load_steps=2 format=3 uid="uid://vru2hts541xa"]
+
+[ext_resource type="Script" uid="uid://dv8t6ta2uc374" path="res://Zapper Minigame/zapper_enemy_resource.gd" id="1_yhx45"]
+
+[resource]
+script = ExtResource("1_yhx45")
+value = 5
+survival_time = 3
+metadata/_custom_type_script = "uid://dv8t6ta2uc374"

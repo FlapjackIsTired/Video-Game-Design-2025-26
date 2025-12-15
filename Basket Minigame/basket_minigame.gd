@@ -54,7 +54,9 @@ func _on_micro_timer_timeout() -> void:
 
 func _on_total_timer_timeout() -> void:
 	micro_timer.stop()
-	GlobalVars.basket_scores.append(total_points)
-	GlobalVars.basket_scores.sort()
-	GlobalVars.basket_scores.invert()
-	print(GlobalVars.basket_scores)
+	SaveLoad.save_file_data.basket_scores.append(total_points)
+	SaveLoad.save_file_data.basket_scores.sort()
+	SaveLoad.save_file_data.basket_scores.reverse()
+		
+	SaveLoad.save()
+	SaveLoad.load_save()

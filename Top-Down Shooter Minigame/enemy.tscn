@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://byoa5aqktnpq5"]
+
+[ext_resource type="Script" uid="uid://bxfnr6e1jgdbi" path="res://Top-Down Shooter Minigame/enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="2_e0iy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(16, 16)
+
+[node name="enemy" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Move Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.12499999, 0.12499999)
+texture = ExtResource("2_e0iy4")
+
+[connection signal="timeout" from="Move Timer" to="." method="_on_move_timer_timeout"]
