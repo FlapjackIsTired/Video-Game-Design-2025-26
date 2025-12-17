@@ -15,6 +15,19 @@ radius = 6.0
 script = ExtResource("1_1w2sn")
 curve = SubResource("Curve_1w2sn")
 
+[node name="Time Label" type="Label" parent="."]
+offset_left = -144.0
+offset_top = -78.0
+offset_right = -104.0
+offset_bottom = -64.0
+
+[node name="Score Label" type="Label" parent="."]
+offset_left = 104.0
+offset_top = -78.0
+offset_right = 144.0
+offset_bottom = -64.0
+text = "0"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Micro Timer" type="Timer" parent="."]
@@ -71,7 +84,7 @@ position = Vector2(40, 0)
 position = Vector2(-40, 0)
 
 [node name="Cursor" type="Area2D" parent="."]
-collision_mask = 3
+collision_layer = 2
 script = ExtResource("2_i0owv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
@@ -79,3 +92,4 @@ shape = SubResource("CircleShape2D_etwcs")
 
 [connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
 [connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]
+[connection signal="shot" from="Cursor" to="." method="_on_cursor_shot"]

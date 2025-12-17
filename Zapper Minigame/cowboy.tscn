@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="2_t5cd2"]
 
 [sub_resource type="Curve" id="Curve_t5cd2"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.70959604, 0.703285), -1.1515124, -1.1515124, 0, 0, Vector2(0.99747485, 0.28455633), -2.4809446, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0.007575758, 1), 0.0, 0.84854996, 0, 0]
+point_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5kk"]
 size = Vector2(16, 16)
 
 [node name="Cowboy 1" type="Area2D"]
-collision_mask = 4
 script = ExtResource("1_jnnab")
 stats = ExtResource("2_dh4g1")
 curve = SubResource("Curve_t5cd2")
@@ -28,5 +27,5 @@ texture = ExtResource("2_t5cd2")
 [node name="Death Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Death Timer" to="." method="_on_death_timer_timeout"]
