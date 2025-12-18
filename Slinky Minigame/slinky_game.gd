@@ -25,7 +25,7 @@ func _ready() -> void:
 	#I don't remeber why this is here, but the code doesn't work without it so ill figure that out later
 	SaveLoad.load_save()
 	
-	ball_1 = load("res://Slinky Game/ball_1.tscn")
+	ball_1 = load("res://Slinky Minigame/ball_1.tscn")
 	ball_1 = ball_1.instantiate()
 	add_child(ball_1)
 	ball_1.position = Vector2(-128, -48)
@@ -71,7 +71,7 @@ func _on_slinky_player_lives_lost() -> void:
 		
 		#adds the score to the array inside the SaveLoad script
 		#Then it sorts it lowest to highest, and reverses it
-		SaveLoad.save_file_data.slinky_scores.append(time_survived)
+		SaveLoad.save_file_data.slinky_scores.append(int(time_survived))
 		SaveLoad.save_file_data.slinky_scores.sort()
 		SaveLoad.save_file_data.slinky_scores.reverse()
 		
@@ -85,11 +85,12 @@ func _on_slinky_player_lives_lost() -> void:
 		var count = 0
 		
 		for i in score_labels:
-			if SaveLoad.save_file_data.slinky_scores[count] != null:
+			#if SaveLoad.save_file_data.slinky_scores[count] != null
+			if SaveLoad.save_file_data.slinky_scores.size() > count:
 				i.text = str(SaveLoad.save_file_data.slinky_scores[count])
 				print(str(SaveLoad.save_file_data.slinky_scores[count]))
 			else:
-				high_score_screen.text += "none"
+				i.text += "none"
 				
 			count += 1
 

@@ -6,6 +6,15 @@ extends Node2D
 @onready var total_timer: Timer = $"Total Timer"
 @onready var time_label: Label = $"Time Label"
 @onready var score_label: Label = $"Score Label"
+@onready var cursor: Area2D = $Cursor
+@onready var high_score_screen: Control = $HighScoreScreen
+
+@onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1, 
+$HighScoreScreen/VBoxContainer/Score2, 
+$HighScoreScreen/VBoxContainer/Score3, 
+$HighScoreScreen/VBoxContainer/Score4, 
+$HighScoreScreen/VBoxContainer/Score5]
+
 @onready var spawn_locations = [$"Top Row/Spot 1",
 $"Top Row/Spot 2", 
 $"Top Row/Spot 3",
@@ -66,7 +75,35 @@ func _on_micro_timer_timeout() -> void:
 	print(current_items)
 
 func _on_total_timer_timeout() -> void:
-	pass
+	time_label.visible = false
+	score_label.visible = false
+	micro_timer.paused = true
+	high_score_screen.visible = true
+	
+	#adds the score to the array inside the SaveLoad script
+	#Then it sorts it lowest to highest, and reverses it
+	SaveLoad.save_file_data.zapper_scores.append(total_points)
+	SaveLoad.save_file_data.zapper_scores.sort()
+	SaveLoad.save_file_data.zapper_scores.reverse()
+	
+	# We save this version of the score list, 
+	# Then we load it immidietly to show the player their scores
+	SaveLoad.save()
+	SaveLoad.load_save()
+	
+	#Created a for loop to print the four highest scores
+	#might create a highscore naming system later to make the game feel more like an arcade
+	var count = 0
+	
+	for i in score_labels:
+		#if SaveLoad.save_file_data.slinky_scores[count] != null
+		if SaveLoad.save_file_data.zapper_scores.size() > count:
+			i.text = str(SaveLoad.save_file_data.zapper_scores[count])
+			print(str(SaveLoad.save_file_data.zapper_scores[count]))
+		else:
+			i.text = "none"
+			
+		count += 1
 
 func _on_cursor_shot(points) -> void:
 	total_points += points

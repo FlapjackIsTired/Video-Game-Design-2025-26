@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dv8t6ta2uc374" path="res://Zapper Minigame/zapper_enemy_resource.gd" id="1_5kga5"]
 
 [sub_resource type="Curve" id="Curve_5kga5"]
-_limits = [0.0, 1.0, 0.0, 5.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(5, 0), -0.67820585, 0.0, 0, 0]
+_limits = [0.0, 1.0, 0.0, 2.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(2, 0), -1.8087173, 0.0, 0, 0]
 point_count = 2
 
 [resource]

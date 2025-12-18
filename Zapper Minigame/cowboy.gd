@@ -13,7 +13,7 @@ var is_solo = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	points = stats.value
-	death_timer.start(stats.survival_time)
+	death_timer.start(stats.survival_time + randf_range(0, 0.5))
 	
 
 
