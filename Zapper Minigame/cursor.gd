@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("space"):
 		var bottles = get_overlapping_areas()
+		print(bottles)
 		if bottles.size() != 0:
 			shot.emit(bottles[0].points)
 			bottles[0].queue_free()

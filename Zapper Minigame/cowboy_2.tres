@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="zapper_enemy_resource" load_steps=3 format=3 uid="uid://decg8mis0v8xx"]
+
+[ext_resource type="Script" uid="uid://dv8t6ta2uc374" path="res://Zapper Minigame/zapper_enemy_resource.gd" id="1_bbbrn"]
+
+[sub_resource type="Curve" id="Curve_xkfkk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9842105, 0.016903877), -3.230338, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_bbbrn")
+value = 10
+survival_time = 1
+curve = SubResource("Curve_xkfkk")
+metadata/_custom_type_script = "uid://dv8t6ta2uc374"

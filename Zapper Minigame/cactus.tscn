@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjetyhyb1dyv2"]
+
+[ext_resource type="Script" uid="uid://6x3snd5ayy68" path="res://Zapper Minigame/cowboy.gd" id="1_8arlf"]
+[ext_resource type="Resource" uid="uid://cyf8cnq2aqrhu" path="res://Zapper Minigame/cactus.tres" id="2_i2fie"]
+[ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="3_nfhtp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5kk"]
+size = Vector2(16, 16)
+
+[node name="Cactus" type="Area2D"]
+modulate = Color(0.46666667, 1, 0, 1)
+script = ExtResource("1_8arlf")
+stats = ExtResource("2_i2fie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qg5kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.018163968, 0.019927671, 0.99998623, 1)
+scale = Vector2(0.12499999, 0.12499999)
+texture = ExtResource("3_nfhtp")
+
+[node name="Death Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Death Timer" to="." method="_on_death_timer_timeout"]

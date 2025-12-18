@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxfwrnt06x2sa"]
+[gd_scene load_steps=5 format=3 uid="uid://dxfwrnt06x2sa"]
 
 [ext_resource type="Script" uid="uid://6x3snd5ayy68" path="res://Zapper Minigame/cowboy.gd" id="1_jnnab"]
 [ext_resource type="Resource" uid="uid://vru2hts541xa" path="res://Zapper Minigame/cowboy_1.tres" id="2_dh4g1"]
 [ext_resource type="Texture2D" uid="uid://d28lo78sn47bc" path="res://icon.svg" id="2_t5cd2"]
-
-[sub_resource type="Curve" id="Curve_t5cd2"]
-_data = [Vector2(0.007575758, 1), 0.0, 0.84854996, 0, 0]
-point_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5kk"]
 size = Vector2(16, 16)
@@ -14,7 +10,6 @@ size = Vector2(16, 16)
 [node name="Cowboy 1" type="Area2D"]
 script = ExtResource("1_jnnab")
 stats = ExtResource("2_dh4g1")
-curve = SubResource("Curve_t5cd2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qg5kk")
