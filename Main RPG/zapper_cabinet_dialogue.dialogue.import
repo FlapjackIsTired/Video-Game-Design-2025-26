@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4k4kihf15wp"
+path="res://.godot/imported/zapper_cabinet_dialogue.dialogue-b9dfdd7b73cd3d53f92587a37d24fa7a.tres"
+
+[deps]
+
+source_file="res://Main RPG/zapper_cabinet_dialogue.dialogue"
+dest_files=["res://.godot/imported/zapper_cabinet_dialogue.dialogue-b9dfdd7b73cd3d53f92587a37d24fa7a.tres"]
+
+[params]
+
+defaults=true

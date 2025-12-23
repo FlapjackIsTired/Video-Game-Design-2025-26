@@ -1,0 +1,6 @@
+~ start
+Narrator: Would you like to play FALLING FRUIT 4?
+- Yes
+	set DialogueVariables.start_game = true
+- No
+=> END

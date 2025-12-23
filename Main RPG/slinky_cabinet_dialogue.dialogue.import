@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dmjxv1v0oahoe"
+path="res://.godot/imported/slinky_cabinet_dialogue.dialogue-3304bd0dbc5149b2b6824441d28a68f5.tres"
+
+[deps]
+
+source_file="res://Main RPG/slinky_cabinet_dialogue.dialogue"
+dest_files=["res://.godot/imported/slinky_cabinet_dialogue.dialogue-3304bd0dbc5149b2b6824441d28a68f5.tres"]
+
+[params]
+
+defaults=true

@@ -5,6 +5,8 @@ extends Node2D
 @onready var high_score_screen: Control = $HighScoreScreen
 
 @onready var reset_timer: Timer = $"Reset Timer"
+@onready var ball_timer: Timer = $"Ball Timer"
+
 @onready var slinky_player: CharacterBody2D = $"Slinky Player"
 
 @onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1,
@@ -14,8 +16,7 @@ $HighScoreScreen/VBoxContainer/Score4,
 $HighScoreScreen/VBoxContainer/Score5]
 
 
-var ball_1 #= "res://Slinky Game/ball_1.tscn"
-var ball_2 #= "res://Slinky Game/ball_2.tscn"
+var balls = ["res://Slinky Minigame/ball_1.tscn","res://Slinky Minigame/ball_2.tscn"]
 var all_balls = []
 
 var time_survived = 0
@@ -24,7 +25,7 @@ var lives_left = 3
 func _ready() -> void:
 	#I don't remeber why this is here, but the code doesn't work without it so ill figure that out later
 	SaveLoad.load_save()
-	
+	var ball_1
 	ball_1 = load("res://Slinky Minigame/ball_1.tscn")
 	ball_1 = ball_1.instantiate()
 	add_child(ball_1)
@@ -40,12 +41,6 @@ func _process(delta: float) -> void:
 		time_label.text = str(reset_timer.time_left)
 	lives_left_label.text = str(lives_left)
 	
-	if time_survived >= 20 and ball_2 == null:
-		ball_2 = load("res://Slinky Game/ball_2.tscn")
-		ball_2 = ball_2.instantiate()
-		add_child(ball_2)
-		ball_2.position = Vector2(-128, -48)
-		all_balls.append(ball_2)
 
 
 
@@ -55,6 +50,7 @@ func _on_slinky_player_lives_lost() -> void:
 	for i in all_balls:
 		if i != null:
 			i.freeze = true
+		ball_timer.paused = true
 	
 	if lives_left > 0:
 		reset_timer.start()
@@ -98,3 +94,12 @@ func _on_reset_timer_timeout() -> void:
 	for i in all_balls:
 		i.freeze = false
 		i.apply_impulse(i.initial_velocity)
+
+
+func _on_ball_timer_timeout() -> void:
+	var ball_type = randi_range(0,1)
+	var ball = load(balls[ball_type])
+	ball = ball.instantiate()
+	add_child(ball)
+	ball.position = Vector2(-128, -48)
+	all_balls.append(ball)

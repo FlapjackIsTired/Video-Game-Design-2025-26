@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnhs6td0ydw3y"]
 
-[ext_resource type="Script" uid="uid://c7twj0jkhroaw" path="res://Main RPG/slinky_cabinet.gd" id="1_gbe5c"]
+[ext_resource type="Script" uid="uid://c7twj0jkhroaw" path="res://Main RPG/cabinet.gd" id="1_gbe5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h26m2"]
 size = Vector2(32, 32)
@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbe5c"]
 size = Vector2(28, 28)
 
-[node name="Slinky Cabinet" type="StaticBody2D"]
+[node name="Cabinet" type="StaticBody2D"]
 script = ExtResource("1_gbe5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

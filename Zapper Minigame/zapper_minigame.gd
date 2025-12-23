@@ -44,6 +44,8 @@ var times_called = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SaveLoad.load_save()
+	
 	var count = 0
 	for i in items:
 		items[count] = load(i)
@@ -94,6 +96,10 @@ func _on_total_timer_timeout() -> void:
 	#Created a for loop to print the four highest scores
 	#might create a highscore naming system later to make the game feel more like an arcade
 	var count = 0
+	
+	for i in current_items:
+		if i != null:
+			i.queue_free()
 	
 	for i in score_labels:
 		#if SaveLoad.save_file_data.slinky_scores[count] != null

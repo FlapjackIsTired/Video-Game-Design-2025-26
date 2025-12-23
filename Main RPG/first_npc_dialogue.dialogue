@@ -7,7 +7,17 @@ else
 	Nathan: Need Help?
 	
 - Yes
-	Nathan: [wave]Welcome[/wave] to the land of UNDECIDED!!!
+	Nathan: [wave]Welcome[/wave] to the land of UNDECIDED!!! [wait=1] A magical world of games, adventure, and chaos!
+	Alex: Wherer am I!? [wait=0.5] How did I get here?!
+	Nathan: I'm guessing you interacted with some old plug-in play in your grandmas attic and it brought you here!
+	Alex:  Ok... [wait=1] how did pluging in some old console bring me here?
+	Nathan: [wave]THE MAGIC OF VIDEO GAMES MY FRIEND!!!![/wave]
+	Alex: Well thats no help, how do I get out of here?
+	Nathan: In this realm there are four arcade cabinets, each containing ancient games forgotten by time
+	Nathan: You must get a high score on each one, to prove to them your alliance and dedication to the past!
+	Nathan: Once you have gotten #1 on all four games, the gate will open, and you will be FREE!!!!
+	ALex: Alright thanks!
+
 - No
 	Nathan: Ah ok, sorry for botherin ya! if you need any help just come talk to me again
 => END

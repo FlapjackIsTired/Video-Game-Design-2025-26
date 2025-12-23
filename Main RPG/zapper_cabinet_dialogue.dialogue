@@ -1,0 +1,6 @@
+~ start
+Narrator: Would you like to play COWBOY CONNUNDRUM?
+- Yes
+	set DialogueVariables.start_game = true
+- No
+=> END

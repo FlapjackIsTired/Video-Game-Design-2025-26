@@ -4,20 +4,31 @@
 [ext_resource type="PackedScene" uid="uid://6lfl3ox4pagi" path="res://Main RPG/player/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bxvv1syd6le3k" path="res://Main RPG/npc.tscn" id="3_aqk2v"]
 [ext_resource type="Script" uid="uid://bl8o2kn3pujgm" path="res://Main RPG/camera.gd" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://bnhs6td0ydw3y" path="res://Main RPG/slinky_cabinet.tscn" id="4_1riv1"]
+[ext_resource type="PackedScene" uid="uid://bnhs6td0ydw3y" path="res://Main RPG/cabinet.tscn" id="4_1riv1"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_1gjno")
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(0, 64)
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("3_tlwt5")
 
 [node name="npc" parent="." instance=ExtResource("3_aqk2v")]
-visible = false
-position = Vector2(0, -100)
+position = Vector2(0, -32)
 
-[node name="Arcade Cabinet" parent="." instance=ExtResource("4_1riv1")]
-visible = false
-position = Vector2(-40, -100)
+[node name="Slinky Cabinet" parent="." instance=ExtResource("4_1riv1")]
+position = Vector2(-208, -38)
+dialogue = "res://Main RPG/slinky_cabinet_dialogue.dialogue"
+game_path = "res://Slinky Minigame/slinky_game.tscn"
+
+[node name="Zapper Cabinet" parent="." instance=ExtResource("4_1riv1")]
+position = Vector2(-90, -116)
+dialogue = "res://Main RPG/zapper_cabinet_dialogue.dialogue"
+game_path = "res://Zapper Minigame/zapper.tscn"
+
+[node name="Basket Cabinet" parent="." instance=ExtResource("4_1riv1")]
+position = Vector2(70, -116)
+dialogue = "res://Main RPG/basket_cabinet_dialogue.dialogue"
+game_path = "res://Basket Minigame/basket_minigame.tscn"

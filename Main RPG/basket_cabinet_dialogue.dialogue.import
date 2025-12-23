@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ft0ou0bptxhr"
+path="res://.godot/imported/basket_cabinet_dialogue.dialogue-f04eb619c46b7d34f0bca72ba0d578d0.tres"
+
+[deps]
+
+source_file="res://Main RPG/basket_cabinet_dialogue.dialogue"
+dest_files=["res://.godot/imported/basket_cabinet_dialogue.dialogue-f04eb619c46b7d34f0bca72ba0d578d0.tres"]
+
+[params]
+
+defaults=true
