@@ -6,4 +6,5 @@
 script = ExtResource("1_xtj2b")
 fall_speed = 8.0
 value = 5
+color = Color(0.99999994, 0.174173, 0.12721556, 1)
 metadata/_custom_type_script = "uid://cejiuddlvy6vy"

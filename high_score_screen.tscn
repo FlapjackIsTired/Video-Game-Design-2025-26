@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c5curut3uxo0q"]
+[gd_scene load_steps=2 format=3 uid="uid://c5curut3uxo0q"]
+
+[ext_resource type="Script" uid="uid://ccipp21xk0dfx" path="res://high_score_screen.gd" id="1_wp4kd"]
 
 [node name="HighScoreScreen" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ offset_top = 109.98
 offset_right = -144.0
 offset_bottom = -97.920006
 scale = Vector2(2, 2)
+script = ExtResource("1_wp4kd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -19,18 +22,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -59.0
-offset_right = 80.0
-offset_bottom = 54.0
+offset_left = -63.0
+offset_top = -45.0
+offset_right = 63.80896
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0054495, 1)
 alignment = 1
 
 [node name="Score1" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "oh 	"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score1"]
 show_behind_parent = true
@@ -51,7 +54,6 @@ color = Color(0.050982848, 0.103467844, 0.17511597, 1)
 [node name="Score2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "boy"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score2"]
 show_behind_parent = true
@@ -72,7 +74,6 @@ color = Color(0.050982848, 0.103467844, 0.17511597, 1)
 [node name="Score3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "it"
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Score3"]
 show_behind_parent = true
@@ -93,7 +94,6 @@ color = Color(0.050982848, 0.103467844, 0.17511597, 1)
 [node name="Score4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "works"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score4"]
 show_behind_parent = true
@@ -114,7 +114,6 @@ color = Color(0.050982848, 0.103467844, 0.17511597, 1)
 [node name="Score5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "fine"
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Score5"]
 show_behind_parent = true
@@ -139,4 +138,30 @@ offset_left = -88.0
 offset_top = -64.0
 offset_right = 90.0
 offset_bottom = 64.0
+scale = Vector2(1.0054495, 1)
 color = Color(0.0015853684, 0.014649026, 0.012483813, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3.8146973e-06, 1)
+scale = Vector2(-13.526826, 0.9023049)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -9.0
+offset_right = 83.0
+offset_bottom = 13.0
+scale = Vector2(1.0054495, 1)
+text = "->"
+
+[node name="Clear Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -7.0
+offset_right = -66.0
+offset_bottom = 15.0
+scale = Vector2(1.0054495, 1)
+text = "X"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Clear Save" to="." method="_on_clear_save_pressed"]

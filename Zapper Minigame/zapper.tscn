@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://j65kvxgb4wpu"]
 
 [ext_resource type="Script" uid="uid://di185u6ahibhw" path="res://Zapper Minigame/zapper_minigame.gd" id="1_1w2sn"]
-[ext_resource type="Script" uid="uid://ctn7msrgp4221" path="res://Zapper Minigame/cursor.gd" id="2_i0owv"]
+[ext_resource type="PackedScene" uid="uid://c1cbskra1dhvq" path="res://Zapper Minigame/cursor.tscn" id="2_i0owv"]
+[ext_resource type="PackedScene" uid="uid://c5curut3uxo0q" path="res://high_score_screen.tscn" id="3_etwcs"]
 
 [sub_resource type="Curve" id="Curve_1w2sn"]
 _limits = [0.0, 2.4472542, 0.0, 60.0]
 _data = [Vector2(0, 0.44528747), 0.0, 0.0, 0, 0, Vector2(16.818184, 1.7631443), 0.03981312, 0.03981312, 0, 0, Vector2(32.57576, 1.596912), -0.013490889, -0.013490889, 0, 0, Vector2(40.909092, 2.3129897), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_etwcs"]
-radius = 6.0
-
 [node name="zapper" type="Node2D"]
 script = ExtResource("1_1w2sn")
 curve = SubResource("Curve_1w2sn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Time Label" type="Label" parent="."]
 offset_left = -144.0
@@ -33,7 +33,7 @@ wait_time = 2.851
 autostart = true
 
 [node name="Total Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
@@ -81,155 +81,16 @@ position = Vector2(40, 0)
 [node name="Spot 12" type="Marker2D" parent="Bottom Row"]
 position = Vector2(-40, 0)
 
-[node name="Cursor" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource("2_i0owv")
+[node name="Cursor" parent="." instance=ExtResource("2_i0owv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
-shape = SubResource("CircleShape2D_etwcs")
-
-[node name="HighScoreScreen" type="Control" parent="."]
+[node name="HighScoreScreen" parent="." instance=ExtResource("3_etwcs")]
 visible = false
-layout_mode = 3
-anchor_left = -0.45000002
-anchor_top = -0.611
-anchor_right = 0.45000002
-anchor_bottom = 0.544
-offset_top = 6.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HighScoreScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -59.0
-offset_right = 80.0
-offset_bottom = 54.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Score1" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "oh 	"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score1"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score2" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "boy"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score2"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score3" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "it"
-
-[node name="ColorRect2" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score3"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score4" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "works"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score4"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score5" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "fine"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score5"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -88.0
-offset_top = -64.0
-offset_right = 90.0
-offset_bottom = 64.0
-color = Color(0.0015853684, 0.014649026, 0.012483813, 1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
+offset_left = 2.0
+offset_top = 5.9800034
+offset_right = 2.0
+offset_bottom = 5.9800034
 
 [connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
 [connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]
-[connection signal="shot" from="Cursor" to="." method="_on_cursor_shot"]
+
+[editable path="HighScoreScreen"]

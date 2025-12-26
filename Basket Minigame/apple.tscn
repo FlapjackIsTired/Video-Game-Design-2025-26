@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bubmfcoevjlwa"]
+[gd_scene load_steps=6 format=3 uid="uid://bubmfcoevjlwa"]
 
 [ext_resource type="Script" uid="uid://c4vlk4cgateih" path="res://Basket Minigame/basket_item.gd" id="1_8pvjp"]
 [ext_resource type="Resource" uid="uid://d3xeekdm77w4u" path="res://Basket Minigame/apple_stats.tres" id="2_qg5kk"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg5kk"]
 size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_dkhcj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.12250006), -2.6953902, 0.0, 0, 0]
+point_count = 2
 
 [node name="Apple" type="Area2D"]
 collision_layer = 2
@@ -21,4 +25,19 @@ modulate = Color(0.79, 0.03950001, 0.03950001, 1)
 scale = Vector2(0.12499999, 0.12499999)
 texture = ExtResource("3_dkhcj")
 
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -8)
+emitting = false
+amount = 10
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.36
+initial_velocity_max = 81.44
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_dkhcj")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="Particles" to="." method="_on_particles_finished"]

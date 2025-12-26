@@ -5,6 +5,14 @@ extends Node2D
 @onready var total_timer: Timer = $"Total Timer"
 @onready var micro_timer: Timer = $"Micro Timer"
 
+@onready var high_score_screen: Control = $HighScoreScreen
+
+@onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1, 
+$HighScoreScreen/VBoxContainer/Score2, 
+$HighScoreScreen/VBoxContainer/Score3, 
+$HighScoreScreen/VBoxContainer/Score4, 
+$HighScoreScreen/VBoxContainer/Score5]
+
 @export var curve : Curve
 
 var items = ["res://Basket Minigame/apple.tscn", 
@@ -13,6 +21,8 @@ var total_points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SaveLoad.load_save()
+	
 	var count = 0
 	for i in items:
 		items[count] = load(i)
@@ -23,7 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	point_label.text = str(total_points)
-	time_label.text = str(total_timer.time_left)
+	time_label.text = str(int(total_timer.time_left))
 	micro_timer.wait_time = curve.sample(total_timer.time_left)
 
 func _on_basket_player_points_collected(points) -> void:
@@ -36,11 +46,11 @@ func _on_micro_timer_timeout() -> void:
 	#45, it will drop three
 	var amount = 1
 	var count = 0
-	if total_timer.time_left <= 50:
+	if total_timer.time_left <= 50 and total_timer.time_left >= 40:
 		amount = 2
-	elif total_timer.time_left <= 40:
+	elif total_timer.time_left <= 40 and total_timer.time_left >= 30:
 		amount = 3
-	elif total_timer.time_left <= 30:
+	elif total_timer.time_left <= 30 and total_timer.time_left >= 20:
 		amount = 5
 	elif total_timer.time_left <= 20:
 		amount = 6
@@ -54,9 +64,44 @@ func _on_micro_timer_timeout() -> void:
 
 func _on_total_timer_timeout() -> void:
 	micro_timer.stop()
+	
+	if total_points > SaveLoad.save_file_data.basket_scores[0]:
+		SaveLoad.save_file_data.basket_completed = true
+		print("good jorb, you completed the absket minigame")
+	
+	
 	SaveLoad.save_file_data.basket_scores.append(total_points)
 	SaveLoad.save_file_data.basket_scores.sort()
 	SaveLoad.save_file_data.basket_scores.reverse()
-		
+	
+	SaveLoad.save_file_data.basket_scores.get(total_points)
+	
 	SaveLoad.save()
 	SaveLoad.load_save()
+	
+	high_score_screen.visible = true
+	
+	
+	
+	var count = 0
+	var count2 = 0
+	
+	var player_score
+	
+	for i in SaveLoad.save_file_data.basket_scores:
+		if i == total_points:
+			player_score = count2
+			break
+		count2 += 1
+	
+	for i in score_labels:
+		#if SaveLoad.save_file_data.slinky_scores[count] != null
+		if SaveLoad.save_file_data.basket_scores.size() > count:
+			i.text = str(SaveLoad.save_file_data.basket_scores[count])
+			if count == player_score:
+				i.modulate = Color.GREEN
+		else:
+			i.text += "none"
+			
+		count += 1
+	

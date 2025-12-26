@@ -6,6 +6,7 @@ const speed = 200.0
 const jump_velocity = -250.0
 
 @onready var basket: Area2D = $Basket
+@onready var particles: CPUParticles2D = $Particles
 
 
 func _physics_process(delta: float) -> void:
@@ -28,6 +29,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_basket_area_entered(area: Area2D) -> void:
+	
+	particles.emitting = true
+	
 	var items = basket.get_overlapping_areas()
 	var points
 	for i in items:

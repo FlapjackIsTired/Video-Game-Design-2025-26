@@ -9,6 +9,8 @@ extends Node2D
 @onready var cursor: Area2D = $Cursor
 @onready var high_score_screen: Control = $HighScoreScreen
 
+@onready var camera_2d: Camera2D = $Camera2D
+
 @onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1, 
 $HighScoreScreen/VBoxContainer/Score2, 
 $HighScoreScreen/VBoxContainer/Score3, 
@@ -82,6 +84,12 @@ func _on_total_timer_timeout() -> void:
 	micro_timer.paused = true
 	high_score_screen.visible = true
 	
+	camera_2d.enabled = false
+	
+	if total_points > SaveLoad.save_file_data.zapper_scores[0]:
+		SaveLoad.save_file_data.zapper_completed = true
+		print("good jorb, you completed the zapper minigame")
+	
 	#adds the score to the array inside the SaveLoad script
 	#Then it sorts it lowest to highest, and reverses it
 	SaveLoad.save_file_data.zapper_scores.append(total_points)
@@ -96,6 +104,16 @@ func _on_total_timer_timeout() -> void:
 	#Created a for loop to print the four highest scores
 	#might create a highscore naming system later to make the game feel more like an arcade
 	var count = 0
+	var count2 = 0
+	
+	var player_score
+	
+	for i in SaveLoad.save_file_data.zapper_scores:
+		if i == total_points:
+			player_score = count2
+			break
+		count2 += 1
+	
 	
 	for i in current_items:
 		if i != null:
@@ -105,7 +123,9 @@ func _on_total_timer_timeout() -> void:
 		#if SaveLoad.save_file_data.slinky_scores[count] != null
 		if SaveLoad.save_file_data.zapper_scores.size() > count:
 			i.text = str(SaveLoad.save_file_data.zapper_scores[count])
-			print(str(SaveLoad.save_file_data.zapper_scores[count]))
+			if count == player_score:
+				i.modulate = Color.GREEN
+			#print(str(SaveLoad.save_file_data.zapper_scores[count]))
 		else:
 			i.text = "none"
 			

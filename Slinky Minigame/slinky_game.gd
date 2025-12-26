@@ -3,11 +3,11 @@ extends Node2D
 @onready var time_label: Label = $"Time Label"
 @onready var lives_left_label: Label = $"Lives Left Label"
 @onready var high_score_screen: Control = $HighScoreScreen
-
 @onready var reset_timer: Timer = $"Reset Timer"
 @onready var ball_timer: Timer = $"Ball Timer"
-
 @onready var slinky_player: CharacterBody2D = $"Slinky Player"
+
+@onready var camera_2d: Camera2D = $Camera2D
 
 @onready var score_labels = [$HighScoreScreen/VBoxContainer/Score1,
 $HighScoreScreen/VBoxContainer/Score2,
@@ -23,8 +23,8 @@ var time_survived = 0
 var lives_left = 3
 
 func _ready() -> void:
-	#I don't remeber why this is here, but the code doesn't work without it so ill figure that out later
 	SaveLoad.load_save()
+	
 	var ball_1
 	ball_1 = load("res://Slinky Minigame/ball_1.tscn")
 	ball_1 = ball_1.instantiate()
@@ -65,6 +65,10 @@ func _on_slinky_player_lives_lost() -> void:
 		reset_timer.paused = true
 		high_score_screen.visible = true
 		
+		camera_2d.enabled = false
+		if time_survived > SaveLoad.save_file_data.slinky_scores[0]:
+			SaveLoad.save_file_data.slinky_completed = true
+			print("good jorb, you completed the slinky minigame")
 		#adds the score to the array inside the SaveLoad script
 		#Then it sorts it lowest to highest, and reverses it
 		SaveLoad.save_file_data.slinky_scores.append(int(time_survived))
@@ -79,12 +83,23 @@ func _on_slinky_player_lives_lost() -> void:
 		#Created a for loop to print the four highest scores
 		#might create a highscore naming system later to make the game feel more like an arcade
 		var count = 0
+		var count2 = 0
 		
+		var player_score
+	
+		for i in SaveLoad.save_file_data.slinky_scores:
+			if i == int(time_survived):
+				player_score = count2
+				break
+			count2 += 1
+	
 		for i in score_labels:
 			#if SaveLoad.save_file_data.slinky_scores[count] != null
 			if SaveLoad.save_file_data.slinky_scores.size() > count:
 				i.text = str(SaveLoad.save_file_data.slinky_scores[count])
-				print(str(SaveLoad.save_file_data.slinky_scores[count]))
+				#print(str(SaveLoad.save_file_data.slinky_scores[count]))
+				if count == player_score:
+					i.modulate = Color.GREEN
 			else:
 				i.text += "none"
 				

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1j8c0wc6tbkt"]
+[gd_scene load_steps=9 format=3 uid="uid://d1j8c0wc6tbkt"]
 
 [ext_resource type="Script" uid="uid://o6y48epwxy2o" path="res://Slinky Minigame/slinky_game.gd" id="1_rb7s3"]
 [ext_resource type="Script" uid="uid://cyko3lecwxvgp" path="res://Slinky Minigame/slinky_player.gd" id="2_rb7s3"]
 [ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="3_edy2p"]
+[ext_resource type="PackedScene" uid="uid://c5curut3uxo0q" path="res://high_score_screen.tscn" id="4_63qdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
 size = Vector2(8, 18)
@@ -82,157 +83,12 @@ shape = SubResource("RectangleShape2D_ekltm")
 position = Vector2(172, -12)
 shape = SubResource("RectangleShape2D_ekltm")
 
-[node name="HighScoreScreen" type="Control" parent="."]
+[node name="HighScoreScreen" parent="." instance=ExtResource("4_63qdh")]
 visible = false
-top_level = true
-layout_mode = 3
-anchor_left = -0.45000002
-anchor_top = -0.611
-anchor_right = 0.45000002
-anchor_bottom = 0.544
-offset_left = -144.0
-offset_top = -98.02
-offset_right = -144.0
-offset_bottom = -98.02
-scale = Vector2(2, 2)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HighScoreScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -59.0
-offset_right = 80.0
-offset_bottom = 54.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Score1" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "oh 	"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score1"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score2" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "boy"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score2"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score3" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "it"
-
-[node name="ColorRect2" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score3"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score4" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "works"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score4"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="Score5" type="Label" parent="HighScoreScreen/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "fine"
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen/VBoxContainer/Score5"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -7.0
-offset_right = 64.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.050982848, 0.103467844, 0.17511597, 1)
-
-[node name="ColorRect" type="ColorRect" parent="HighScoreScreen"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -63.999996
-offset_right = 89.0
-offset_bottom = 63.999996
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0015853684, 0.014649026, 0.012483813, 1)
 
 [connection signal="timeout" from="Reset Timer" to="." method="_on_reset_timer_timeout"]
 [connection signal="timeout" from="Ball Timer" to="." method="_on_ball_timer_timeout"]
 [connection signal="lives_lost" from="Slinky Player" to="." method="_on_slinky_player_lives_lost"]
 [connection signal="body_entered" from="Slinky Player/Area2D" to="Slinky Player" method="_on_area_2d_body_entered"]
+
+[editable path="HighScoreScreen"]
