@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bxxvxxjy0tdo4"]
 
-[ext_resource type="Script" uid="uid://c7r8f0hadf1q3" path="res:///balloon.gd" id="1_s2gbs"]
+[ext_resource type="Script" uid="uid://df12641ujxjkb" path="res://balloon.gd" id="1_4emby"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_1j1j0"]
 
@@ -111,8 +111,8 @@ _data = {
 }
 
 [node name="ExampleBalloon" type="CanvasLayer"]
-layer = 100
-script = ExtResource("1_s2gbs")
+layer = 10000
+script = ExtResource("1_4emby")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true

@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 		if bottles.size() != 0:
 			shot.emit(bottles[0].points)
 			bottles[0].queue_free()
+			print("hit")
 		else:
 			shot.emit(-5)

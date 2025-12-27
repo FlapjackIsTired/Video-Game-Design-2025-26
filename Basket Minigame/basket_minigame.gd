@@ -69,6 +69,7 @@ func _on_total_timer_timeout() -> void:
 		SaveLoad.save_file_data.basket_completed = true
 		print("good jorb, you completed the absket minigame")
 	
+	SaveLoad.save_file_data.basket_completed = true
 	
 	SaveLoad.save_file_data.basket_scores.append(total_points)
 	SaveLoad.save_file_data.basket_scores.sort()

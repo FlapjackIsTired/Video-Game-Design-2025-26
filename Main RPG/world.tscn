@@ -8,6 +8,7 @@
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_1gjno")
+final_dialogue = "res://Main RPG/final_dialogue.dialogue"
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(0, 64)

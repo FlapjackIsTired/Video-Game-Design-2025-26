@@ -33,7 +33,7 @@ wait_time = 2.851
 autostart = true
 
 [node name="Total Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 
@@ -92,5 +92,6 @@ offset_bottom = 5.9800034
 
 [connection signal="timeout" from="Micro Timer" to="." method="_on_micro_timer_timeout"]
 [connection signal="timeout" from="Total Timer" to="." method="_on_total_timer_timeout"]
+[connection signal="shot" from="Cursor" to="." method="_on_cursor_shot"]
 
 [editable path="HighScoreScreen"]

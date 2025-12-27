@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cgjlr0wet7cce"
+path="res://.godot/imported/final_dialogue.dialogue-dc4a975c7eb41b6f94f5b36af6a5812a.tres"
+
+[deps]
+
+source_file="res://Main RPG/final_dialogue.dialogue"
+dest_files=["res://.godot/imported/final_dialogue.dialogue-dc4a975c7eb41b6f94f5b36af6a5812a.tres"]
+
+[params]
+
+defaults=true

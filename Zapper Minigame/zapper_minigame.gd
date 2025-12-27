@@ -51,6 +51,7 @@ func _ready() -> void:
 	var count = 0
 	for i in items:
 		items[count] = load(i)
+		connect("spot_shared", fix_position)
 		count += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,13 +71,11 @@ func _on_micro_timer_timeout() -> void:
 		amount = 5
 
 	while count < amount:
-		print("went")
 		spawn_item()
 		count += 1
 	
 	update_current_items()
 	
-	print(current_items)
 
 func _on_total_timer_timeout() -> void:
 	time_label.visible = false
@@ -169,6 +168,5 @@ func update_current_items():
 	var count = 0
 	for i in current_items:
 		if i == null:
-			print("die")
 			current_items.remove_at(count)
 		count += 1
