@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://budgt7lrqamai"]
+
+[ext_resource type="Script" uid="uid://cyko3lecwxvgp" path="res://Slinky Minigame/slinky_player.gd" id="1_u5ivc"]
+[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="2_rvatk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
+size = Vector2(8, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxgmr"]
+size = Vector2(12, 20)
+
+[node name="Slinky Player" type="CharacterBody2D"]
+script = ExtResource("1_u5ivc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rvatk")
+hframes = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lg4go")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yxgmr")
+
+[node name="Invulnerability Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = -8.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Invulnerability Timer" to="." method="_on_invulnerability_timer_timeout"]

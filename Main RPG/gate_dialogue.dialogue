@@ -1,5 +1,5 @@
 ~ start
-Narrator: Would you like to play BALL QUEST?
+Narrator: Would you like to leave?
 - Yes
 	set DialogueVariables.start_game = true
 - No

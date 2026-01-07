@@ -15,6 +15,7 @@ func _ready() -> void:
 		SaveLoad.save_file_data.slinky_scores = [0,0,0,0,0]#[45, 40, 30, 20, 1]
 		SaveLoad.save_file_data.zapper_scores = [0,0,0,0,0]
 	
+	#im keeping this abandoned code here for emotional support (aka im scared i might still need it)
 	#if SaveLoad.save_file_data.first_time_playing == false:
 	#SaveLoad.save_file_data.basket_scores = [0,0,0,0,0]#[750, 700, 600, 300, 0]
 	#SaveLoad.save_file_data.slinky_scores = [0,0,0,0,0]#[45, 40, 30, 20, 1]

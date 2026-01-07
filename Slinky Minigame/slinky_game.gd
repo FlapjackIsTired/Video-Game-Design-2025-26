@@ -20,7 +20,7 @@ var balls = ["res://Slinky Minigame/ball_1.tscn","res://Slinky Minigame/ball_2.t
 var all_balls = []
 
 var time_survived = 0
-var lives_left = 3
+var lives_left = 6
 
 func _ready() -> void:
 	SaveLoad.load_save()
@@ -39,14 +39,14 @@ func _process(delta: float) -> void:
 		time_survived += 0.02
 	else:
 		time_label.text = str(reset_timer.time_left)
-	lives_left_label.text = str(lives_left)
+	lives_left_label.text = str(lives_left/2)
 	
 
 
 
 func _on_slinky_player_lives_lost() -> void:
-	#This will reset the balls position to give the player some time to recover
 	lives_left -= 1
+	'''
 	for i in all_balls:
 		if i != null:
 			i.freeze = true
@@ -54,9 +54,9 @@ func _on_slinky_player_lives_lost() -> void:
 	
 	if lives_left > 0:
 		reset_timer.start()
-	
+	'''
 	#This will be used to display what happens when the player dies
-	elif lives_left == 0:
+	if lives_left == 0:
 		for i in all_balls:
 			i.queue_free()
 		
@@ -64,8 +64,9 @@ func _on_slinky_player_lives_lost() -> void:
 		lives_left_label.visible = false
 		reset_timer.paused = true
 		high_score_screen.visible = true
-		
+		slinky_player.visible = false
 		camera_2d.enabled = false
+		
 		if time_survived > SaveLoad.save_file_data.slinky_scores[0]:
 			SaveLoad.save_file_data.slinky_completed = true
 			print("good jorb, you completed the slinky minigame")

@@ -1,15 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1j8c0wc6tbkt"]
+[gd_scene load_steps=6 format=3 uid="uid://d1j8c0wc6tbkt"]
 
 [ext_resource type="Script" uid="uid://o6y48epwxy2o" path="res://Slinky Minigame/slinky_game.gd" id="1_rb7s3"]
-[ext_resource type="Script" uid="uid://cyko3lecwxvgp" path="res://Slinky Minigame/slinky_player.gd" id="2_rb7s3"]
-[ext_resource type="Texture2D" uid="uid://c112n440g4ggn" path="res://Main RPG/player/player.png" id="3_edy2p"]
+[ext_resource type="PackedScene" uid="uid://budgt7lrqamai" path="res://Slinky Minigame/slinky_player.tscn" id="3_7jiwm"]
 [ext_resource type="PackedScene" uid="uid://c5curut3uxo0q" path="res://high_score_screen.tscn" id="4_63qdh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg4go"]
-size = Vector2(8, 18)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxgmr"]
-size = Vector2(12, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgj3y"]
 size = Vector2(320, 26)
@@ -28,7 +21,7 @@ one_shot = true
 autostart = true
 
 [node name="Ball Timer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 15.0
 autostart = true
 
 [node name="Time Label" type="Label" parent="."]
@@ -42,26 +35,6 @@ offset_left = -158.0
 offset_top = -88.0
 offset_right = -118.0
 offset_bottom = -65.0
-
-[node name="Slinky Player" type="CharacterBody2D" parent="."]
-position = Vector2(4, 52)
-script = ExtResource("2_rb7s3")
-
-[node name="Sprite2D" type="Sprite2D" parent="Slinky Player"]
-texture = ExtResource("3_edy2p")
-hframes = 60
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slinky Player"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_lg4go")
-
-[node name="Area2D" type="Area2D" parent="Slinky Player"]
-position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slinky Player/Area2D"]
-shape = SubResource("RectangleShape2D_yxgmr")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 5
@@ -86,9 +59,11 @@ shape = SubResource("RectangleShape2D_ekltm")
 [node name="HighScoreScreen" parent="." instance=ExtResource("4_63qdh")]
 visible = false
 
+[node name="Slinky Player" parent="." instance=ExtResource("3_7jiwm")]
+position = Vector2(2, 50)
+
 [connection signal="timeout" from="Reset Timer" to="." method="_on_reset_timer_timeout"]
 [connection signal="timeout" from="Ball Timer" to="." method="_on_ball_timer_timeout"]
 [connection signal="lives_lost" from="Slinky Player" to="." method="_on_slinky_player_lives_lost"]
-[connection signal="body_entered" from="Slinky Player/Area2D" to="Slinky Player" method="_on_area_2d_body_entered"]
 
 [editable path="HighScoreScreen"]

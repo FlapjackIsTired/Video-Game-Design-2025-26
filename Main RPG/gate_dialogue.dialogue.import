@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d3k0aaqipy5jy"
+path="res://.godot/imported/gate_dialogue.dialogue-0626c8f58dbbba2079481f4de97b93b1.tres"
+
+[deps]
+
+source_file="res://Main RPG/gate_dialogue.dialogue"
+dest_files=["res://.godot/imported/gate_dialogue.dialogue-0626c8f58dbbba2079481f4de97b93b1.tres"]
+
+[params]
+
+defaults=true

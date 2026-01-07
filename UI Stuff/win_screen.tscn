@@ -1,18 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://brkw42a52uneo"]
+[gd_scene load_steps=4 format=3 uid="uid://colvm2cqv5jjp"]
 
-[ext_resource type="Script" uid="uid://hdnteyciykq1" path="res://UI Stuff/title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Script" uid="uid://bp1he4eoqifnn" path="res://UI Stuff/win_screen.gd" id="1_esyke"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ak2if"]
 font_size = 46
 
-[node name="Title Screen" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_wmwda"]
+font_size = 26
+
+[node name="Win Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v6p8y")
+script = ExtResource("1_esyke")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 90)
@@ -31,18 +34,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -87.0
-offset_top = -108.0
+offset_top = -48.0
 offset_right = 87.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start"
-
-[node name="Settings" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Settings	"
+text = "Back to Title Screen"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -58,11 +57,29 @@ offset_top = 14.0
 offset_right = 71.0
 offset_bottom = 54.0
 grow_horizontal = 2
-text = "NEW GAME +"
+text = "YOU WIN!!!!!!"
 label_settings = SubResource("LabelSettings_ak2if")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -41.5
+offset_right = 177.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing our game
+We hope you enjoyed it!!"
+label_settings = SubResource("LabelSettings_wmwda")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
